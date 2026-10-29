@@ -120,7 +120,7 @@ export function openEditor({ id, dateKey, hour }) {
   const draft = existing ? clone(existing) : {
     title: '', note: '', date: dateKey, allDay: false,
     start: D.hh(startH), end: D.hh(Math.min(startH + 1, 23)) === D.hh(startH) ? '23:59' : D.hh(startH + 1),
-    forIds: [session.meId], repeat: 'none', list: null, private: false, remind: DEFAULT_REMIND,
+    forIds: [], repeat: 'none', list: null, private: false, remind: DEFAULT_REMIND,
   };
   draft.private = !!draft.private;
   draft.remind = remindOf(draft);
@@ -273,7 +273,10 @@ export function openEditor({ id, dateKey, hour }) {
   syncTimed();
   renderWho();
   renderList();
-  if (!existing) f('title').focus();
+  // The sheet is still sliding in from below, so iOS would scroll it down to the field
+  if (!existing) f('title').focus({ preventScroll: true });
+  sheet.body.scrollTop = 0;
+  setTimeout(() => { sheet.body.scrollTop = 0; }, 350);
 }
 
 function defaultHour(dateKey) {

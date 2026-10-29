@@ -1,7 +1,7 @@
 // Keeps the app opening without internet. Data itself is cached by Firestore.
 // App files: network first, so updates arrive at once; the cache is the offline fallback.
 // Firebase SDK files are versioned in the URL, so they are served from the cache.
-const CACHE = 'fc-v2';
+const CACHE = 'fc-v3';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
   'js/app.js', 'js/util.js', 'js/dates.js', 'js/recur.js', 'js/push.js', 'js/config.js', 'js/firebase.js', 'js/store.js',
