@@ -1,0 +1,6 @@
+node_modules/
+.firebase/
+*.log
+# Keys never go into the repository: they are GitHub secrets
+*service-account*.json
+vapid-keys.json

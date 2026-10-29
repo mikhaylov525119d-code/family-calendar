@@ -1,0 +1,17 @@
+{
+  "name": "family-calendar",
+  "private": true,
+  "type": "module",
+  "description": "Семейный календарь: приложение (index.html) и рассылка уведомлений (notifier/)",
+  "scripts": {
+    "notify": "node notifier/notify.js",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.10.0",
+    "web-push": "^3.6.7"
+  }
+}
