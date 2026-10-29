@@ -192,7 +192,7 @@ export function openEditor({ id, dateKey, hour }) {
     // "Only they see it" makes sense only for specific people
     $('.private-row').hidden = all;
     const viewers = [...new Set([draft.authorId || session.meId, ...draft.forIds])].map(store.member).filter(Boolean);
-    $('.row-hint').textContent = viewers.map(m => m.name).join(', ');
+    $('.private-row .row-hint').textContent = viewers.map(m => m.name).join(', ');
   }
 
   function renderList() {
